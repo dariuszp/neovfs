@@ -1,0 +1,25 @@
+{
+  "name": "neovfs",
+  "version": "0.1.0",
+  "description": "Neo4j virtual file system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dariuszp/neovfs.git"
+  },
+  "keywords": [
+    "neo4j",
+    "virtual",
+    "file",
+    "system"
+  ],
+  "author": "Dariusz Półtorak <poltorak.dariusz@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dariuszp/neovfs/issues"
+  },
+  "homepage": "https://github.com/dariuszp/neovfs#readme"
+}
