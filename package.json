@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/dariuszp/neovfs/issues"
   },
-  "homepage": "https://github.com/dariuszp/neovfs#readme"
+  "homepage": "https://github.com/dariuszp/neovfs#readme",
+  "devDependencies": {
+    "neo4j-driver": "^1.0.4"
+  }
 }
