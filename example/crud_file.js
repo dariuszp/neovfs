@@ -1,0 +1,1 @@
+let NeoVFS = require(`${__dirname}/../index.js`);
