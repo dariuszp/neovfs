@@ -2,8 +2,8 @@ let Base = require(`${__dirname}/base.js`);
 
 class Link extends Base
 {
-    constructor() {
+    constructor(name = '', ownerId = undefined) {
         this.type = 'link';
-        super();
+        super(name, ownerId);
     }
 }

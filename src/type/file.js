@@ -2,8 +2,8 @@ let Base = require(`${__dirname}/base.js`);
 
 class File extends Base
 {
-    constructor() {
+    constructor(name = '', ownerId = undefined) {
         this.type = 'file';
-        super();
+        super(name, ownerId);
     }
 }

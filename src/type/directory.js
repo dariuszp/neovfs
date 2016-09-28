@@ -2,8 +2,8 @@ let Base = require(`${__dirname}/base.js`);
 
 class Directory extends Base
 {
-    constructor() {
+    constructor(name = '', ownerId = undefined) {
         this.type = 'directory';
-        super();
+        super(name, ownerId);
     }
 }
