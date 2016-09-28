@@ -1,6 +1,10 @@
-class Base
+class FileType
 {
     constructor(name = '', ownerId = undefined) {
+        if (this.constructor === Base) {
+            throw new Error("Can't instantiate abstract class!");
+        }
+
         if (!this.type) {
             throw new Error('File must have type property specified. Set "this.type" before calling super constructor in extended class.');
         }
@@ -37,3 +41,5 @@ class Base
         return ownerId !== undefined;
     }
 }
+
+module.exports = FileType;

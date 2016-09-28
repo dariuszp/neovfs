@@ -1,10 +1,14 @@
-let FileTypeFile = require(`${__dirname}/type/file.js`);
-let FileTypeDirectory = require(`${__dirname}/type/directory.js`);
-let FileTypeLink = require(`${__dirname}/type/link.js`);
+let File = require(`${__dirname}/type/File.js`);
+let Directory = require(`${__dirname}/type/Directory.js`);
+let Link = require(`${__dirname}/type/Link.js`);
 
 class NeoVFS
 {
     constructor(driver) {
+        if (!(driver instanceof Object)) {
+            throw new Error('Missing neo4j driver');
+        }
+        
         this.driver = driver;
     }
 

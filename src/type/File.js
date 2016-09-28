@@ -1,6 +1,6 @@
-let Base = require(`${__dirname}/base.js`);
+let FileType = require(`${__dirname}/FileType.js`);
 
-class File extends Base
+class File extends FileType
 {
     constructor(name = '', ownerId = undefined) {
         this.type = 'file';

@@ -4,7 +4,7 @@
   "description": "Neo4j virtual file system",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/dariuszp/neovfs#readme",
   "devDependencies": {
-    "neo4j-driver": "^1.0.4"
+    "mocha": "^3.1.0",
+    "neo4j-driver": "^1.0.4",
+    "should": "^11.1.0"
   }
 }
