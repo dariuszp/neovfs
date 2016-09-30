@@ -1,19 +1,40 @@
-let File = require(`${__dirname}/type/File`);
-let Directory = require(`${__dirname}/type/Directory`);
-let Link = require(`${__dirname}/type/Link`);
+let Storage = require(`${__dirname}/storage/Storage`);
+let Neo4jStorage = require(`${__dirname}/storage/Neo4jStorage`);
+let Repository = require(`${__dirname}/repository/Repository`);
+let FileRepository = require(`${__dirname}/repository/FileRepository`);
 
+/**
+ * NeoVFS - neo4j virtual file system
+ * 
+ * @class NeoVFS
+ */
 class NeoVFS
 {
+    /**
+     * Creates an instance of NeoVFS.
+     * 
+     * @param {any} driver
+     * 
+     * @memberOf NeoVFS
+     */
     constructor(driver) {
         if (!(driver instanceof Object)) {
             throw new Error('Missing neo4j driver');
         }
         
-        this.driver = driver;
+        let storage = new Neo4jStorage(driver);
+        this.repository = new FileRepository(storage);
     }
 
-    getDriver() {
-        return this.driver;
+    /**
+     * Returns Repository
+     * 
+     * @returns Repository
+     * 
+     * @memberOf NeoVFS
+     */
+    getRepository() {
+        return this.repository;
     }
 }
 

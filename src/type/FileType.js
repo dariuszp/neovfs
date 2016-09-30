@@ -1,5 +1,18 @@
+/**
+ * Base for all file types
+ * 
+ * @class FileType
+ */
 class FileType
 {
+    /**
+     * Creates an instance of FileType.
+     * 
+     * @param {string} [name=''] - name of the file
+     * @param {any} [ownerId=undefined] - owner of the file
+     * 
+     * @memberOf FileType
+     */
     constructor(name = '', ownerId = undefined) {
         if (this.constructor === Base) {
             throw new Error("Can't instantiate abstract class!");
@@ -21,10 +34,25 @@ class FileType
         this.ownerId = ownerId;
     }
 
+    /**
+     * Get current type
+     * 
+     * @returns
+     * 
+     * @memberOf FileType
+     */
     getType() {
         return this.type;
     }
 
+    /**
+     * Check if file has proper name
+     * 
+     * @param {any} name
+     * @returns
+     * 
+     * @memberOf FileType
+     */
     isValidName(name) {
         let isValid = true;
         if (typeof name !== 'string') {
@@ -37,6 +65,14 @@ class FileType
         return isValid;
     }
 
+    /**
+     * Check if owner id is not falsy value
+     * 
+     * @param {any} ownerId
+     * @returns
+     * 
+     * @memberOf FileType
+     */
     isValidOwnerId(ownerId) {
         return ownerId !== undefined;
     }
