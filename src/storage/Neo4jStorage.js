@@ -1,4 +1,4 @@
-let Storage = require(`${__dirname}/Storage.js`);
+let Storage = require(`${__dirname}/Storage`);
 
 class Neo4jStorage extends Storage
 {

@@ -1,4 +1,4 @@
-let Repository = require(`${__dirname}/../repository/Repository.js`);
+let Repository = require(`${__dirname}/../repository/Repository`);
 
 class FileFactory
 {

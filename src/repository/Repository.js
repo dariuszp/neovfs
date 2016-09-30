@@ -1,4 +1,4 @@
-let Storage = require(`${__dirname}/../storage/Storage.js`);
+let Storage = require(`${__dirname}/../storage/Storage`);
 
 class Repository
 {

@@ -1,6 +1,6 @@
-let File = require(`${__dirname}/type/File.js`);
-let Directory = require(`${__dirname}/type/Directory.js`);
-let Link = require(`${__dirname}/type/Link.js`);
+let File = require(`${__dirname}/type/File`);
+let Directory = require(`${__dirname}/type/Directory`);
+let Link = require(`${__dirname}/type/Link`);
 
 class NeoVFS
 {

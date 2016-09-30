@@ -1,4 +1,4 @@
-let FileType = require(`${__dirname}/FileType.js`);
+let FileType = require(`${__dirname}/FileType`);
 
 class Directory extends FileType
 {

@@ -1,4 +1,4 @@
-let FileType = require(`${__dirname}/fileType.js`);
+let FileType = require(`${__dirname}/FileType`);
 
 class Link extends FileType
 {
