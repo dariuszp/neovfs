@@ -8,15 +8,17 @@ class FileType
     /**
      * Creates an instance of FileType.
      * 
-     * @param {string} [name=''] - name of the file
-     * @param {any} [ownerId=undefined] - owner of the file
+     * @param string [name=''] - name of the file
+     * @param {any} [ownerId=false] - owner of the file
      * 
      * @memberOf FileType
      */
-    constructor(name = '', ownerId = undefined) {
+    constructor(id, name = '', ownerId = false, parent = false) {
         if (this.constructor === Base) {
             throw new Error("Can't instantiate abstract class!");
         }
+
+        this.id = id;
 
         if (!this.type) {
             throw new Error('File must have type property specified. Set "this.type" before calling super constructor in extended class.');
@@ -30,8 +32,17 @@ class FileType
             throw new Error(`Invalid owner ID ${ownerId}`);
         }
 
+        if (!this.isValidParent(parent)) {
+            throw new Error(`Invalid parent ${parent}`);
+        }
+
         this.name = name;
         this.ownerId = ownerId;
+        this.parent = parent;
+    }
+
+    getId() {
+        return this.id;
     }
 
     /**
@@ -48,7 +59,7 @@ class FileType
     /**
      * Check if file has proper name
      * 
-     * @param {any} name
+     * @param string name
      * @returns
      * 
      * @memberOf FileType
@@ -75,6 +86,18 @@ class FileType
      */
     isValidOwnerId(ownerId) {
         return ownerId !== undefined;
+    }
+
+    /**
+     * Check if parent is valid
+     * 
+     * @param Directory parent
+     * @returns
+     * 
+     * @memberOf FileType
+     */
+    isValidParent(parent) {
+        return parent === false || ((parent && parent instanceof FileType) && (parent.getType() === 'directory'));
     }
 }
 

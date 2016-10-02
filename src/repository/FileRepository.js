@@ -6,24 +6,11 @@ class FileRepository extends Repository
 {
 
     create(name, type, ownerId, parent = false) {
-        if (parent && !(parent instanceof Directory)) {
-            throw new Error('File can be only a parent of a Directory');
-        }
-
         if (!type instanceof FileType) {
             throw new Error('Unrecognized file type');
         }
 
-        name = String(name || '').trim();
-        if (!name.length) {
-            throw new Error('Invalid name');
-        }
-
-        if (!ownerId) {
-            throw new Error('Invalid owner');
-        }
-
-        return new type(name, ownerId)
+        let file = new type(undefined, name, ownerId, parent);
     }
 
 

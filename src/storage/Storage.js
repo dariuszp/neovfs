@@ -1,7 +1,7 @@
 class Storage
 {
     constructor() {
-        if (this.constructor === Repository) {
+        if (this.constructor === Storage) {
             throw new Error("Can't instantiate abstract class!");
         }
     }

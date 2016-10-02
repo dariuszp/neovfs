@@ -18,3 +18,5 @@ class Repository
         return this.storage;
     }
 }
+
+module.exports = Repository;

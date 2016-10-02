@@ -2,6 +2,7 @@ let Storage = require(`${__dirname}/storage/Storage`);
 let Neo4jStorage = require(`${__dirname}/storage/Neo4jStorage`);
 let Repository = require(`${__dirname}/repository/Repository`);
 let FileRepository = require(`${__dirname}/repository/FileRepository`);
+let Directory = require(`${__dirname}/type/Directory`);
 
 /**
  * NeoVFS - neo4j virtual file system
@@ -35,6 +36,10 @@ class NeoVFS
      */
     getRepository() {
         return this.repository;
+    }
+
+    createDirectory(name, ownerId, parent = false) {
+        return this.repository.create(name, Directory, ownerId, parent);
     }
 }
 

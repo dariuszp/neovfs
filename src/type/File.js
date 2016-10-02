@@ -2,8 +2,8 @@ let FileType = require(`${__dirname}/FileType`);
 
 class File extends FileType
 {
-    constructor(name = '', ownerId = undefined) {
+    constructor(id ,name = '', ownerId = false, parent = false) {
         this.type = 'file';
-        super(name, ownerId);
+        super(id ,name, ownerId, parent);
     }
 }
