@@ -54,6 +54,15 @@ class FileType
     }
 
     /**
+     * Set id
+     * 
+     * @memberOf FileType
+     */
+    setId(id) {
+        this.id = id;
+    }
+
+    /**
      * Get current type
      * 
      * @returns
@@ -75,6 +84,13 @@ class FileType
         return String(this.name).trim();
     }
 
+    setName(name) {
+        if (!this.isValidName(name)) {
+            throw new Error(`Invalid file name ${name}`);
+        }
+        this.name = name;
+    }
+
     /**
      * Return owner ID
      * 
@@ -87,12 +103,39 @@ class FileType
     }
 
     /**
+     * Set owner id
+     * 
+     * @param {any} ownerId
+     * 
+     * @memberOf FileType
+     */
+    setOwnerId(ownerId) {
+        if (!this.isValidOwnerId(ownerId)) {
+            throw new Error(`Invalid owner ID ${ownerId}`);
+        }
+        this.ownerId = ownerId;
+    }
+
+    /**
      * Return parent
      * 
      * @memberOf FileType
      */
     getParent() {
         this.parent;
+    }
+
+    /**
+     * Set parent
+     * 
+     * @memberOf FileType
+     */
+    setParent() {
+        if (!this.isValidParent(parent)) {
+            throw new Error(`Invalid parent ${parent}`);
+        }
+        this.parent = parent;
+        return this;
     }
 
     /**
