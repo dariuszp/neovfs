@@ -3,6 +3,8 @@ let Neo4jStorage = require(`${__dirname}/storage/Neo4jStorage`);
 let Repository = require(`${__dirname}/repository/Repository`);
 let FileRepository = require(`${__dirname}/repository/FileRepository`);
 let Directory = require(`${__dirname}/type/Directory`);
+let File = require(`${__dirname}/type/File`);
+let Link = require(`${__dirname}/type/Link`);
 
 /**
  * NeoVFS - neo4j virtual file system
@@ -38,8 +40,20 @@ class NeoVFS
         return this.repository;
     }
 
+    create(name, Type, ownerId, parent = false) {
+        return this.repository.create(name, Type, ownerId, parent);
+    }
+
     createDirectory(name, ownerId, parent = false) {
-        return this.repository.create(name, Directory, ownerId, parent);
+        return this.create(name, Directory, ownerId, parent);
+    }
+
+    createFile(name, ownerId, parent = false) {
+        return this.create(name, File, ownerId, parent);
+    }
+
+    createLink(name, ownerId, parent = false) {
+        return this.create(name, Link, ownerId, parent);
     }
 }
 
