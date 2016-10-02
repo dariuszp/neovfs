@@ -1,5 +1,5 @@
 /**
- * Base for all file types
+ * FileType for all file types
  * 
  * @class FileType
  */
@@ -13,15 +13,15 @@ class FileType
      * 
      * @memberOf FileType
      */
-    constructor(id, name = '', ownerId = false, parent = false) {
-        if (this.constructor === Base) {
+    constructor(id, type, name = '', ownerId = false, parent = false) {
+        if (this.constructor === FileType) {
             throw new Error("Can't instantiate abstract class!");
         }
 
         this.id = id;
 
-        if (!this.type) {
-            throw new Error('File must have type property specified. Set "this.type" before calling super constructor in extended class.');
+        if (!type) {
+            throw new Error(`Invalid type ${type}`);
         }
         
         if (!this.isValidName(name)) {
@@ -36,11 +36,19 @@ class FileType
             throw new Error(`Invalid parent ${parent}`);
         }
 
+        this.type = type;
         this.name = name;
         this.ownerId = ownerId;
         this.parent = parent;
     }
 
+    /**
+     * Get ID
+     * 
+     * @returns
+     * 
+     * @memberOf FileType
+     */
     getId() {
         return this.id;
     }
@@ -54,6 +62,37 @@ class FileType
      */
     getType() {
         return this.type;
+    }
+
+    /**
+     * Get name
+     * 
+     * @returns
+     * 
+     * @memberOf FileType
+     */
+    getName() {
+        return String(this.name).trim();
+    }
+
+    /**
+     * Return owner ID
+     * 
+     * @returns
+     * 
+     * @memberOf FileType
+     */
+    getOwnerId() {
+        return this.ownerId;
+    }
+
+    /**
+     * Return parent
+     * 
+     * @memberOf FileType
+     */
+    getParent() {
+        this.parent;
     }
 
     /**

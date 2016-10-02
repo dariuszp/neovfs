@@ -8,7 +8,9 @@ let neo4j = require('neo4j-driver').v1;
 
 describe('Neovfs', () => {
     it ('should build', () => {
-        var driver = neo4j.driver("bolt://localhost", neo4j.auth.basic("neo4j", "neo4j"));
+        let driver = neo4j.driver("bolt://localhost", neo4j.auth.basic("neo4j", "neo4j"));
+        should(driver.session).be.type('function');
+        
         let neofvs = new NeoVFS(driver);
         should(neofvs).be.instanceOf(NeoVFS);
     });
